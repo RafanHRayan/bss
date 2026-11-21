@@ -619,9 +619,9 @@ function BeeSwarmSimulator(DATA){
     let inventoryButton=document.getElementById('inventoryButton')
     let questButton=document.getElementById('questButton')
     let beesButton=document.getElementById('beesButton')
-    let settingsButton=document.getElementById('settingsButton')
     let beequipButton=document.getElementById('beequipButton')
     let catalogButton=document.getElementById('catalogButton')
+    let settingsButton=document.getElementById('settingsButton')
     let pages=document.getElementsByClassName('uiPage')
     let currentPage=null
     let hotbarSlots=document.getElementsByClassName('hotbarSlot')
