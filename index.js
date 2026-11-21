@@ -130,25 +130,44 @@ function main(){
     
             BeeSwarmSimulator({id:Date.now(),name:'Untitled Save'})
         }
-    
-        document.getElementById('createImportedGame').onclick=function(){
-    
-            alert("\nTo import a game, you'll need a string containing the saved data of the game. Copy the string, and then use CTRL+V in this program to start the game.\n\nAn invalid code will create an error message. There is a chance errors in the save code are not detected and pass through. This may corrupt the game, resulting in crashes.")
+
+        function loadImportedGame(text) {
+            if (!ableToImport) return;
+            ableToImport = false;
+
+            document.getElementById('mainSelectMenu').style.display = 'none';
+            document.getElementById('mainMenu').style.display = 'none';
+            BeeSwarmSimulator({ id: Date.now(), saveCode: text, name: 'Untitled Import' });
         }
     
-        document.onpaste=(e)=>{
+        document.getElementById('createImportedGame').onclick = async function() {
+            const instructionsAlert = "\nTo import a game, you'll need a string containing the saved data of the game. Copy the string, and then use CTRL+V in this program or click this button again to start the game.\n\nAn invalid code will create an error message. There is a chance errors in the save code are not detected and pass through. This may corrupt the game, resulting in crashes.";
+
+            try {
+                // Attempt to read text directly from the clipboard
+                const text = await navigator.clipboard.readText();
+                
+                // Check if the clipboard is empty or only whitespace
+                if (!text || text.trim() === "") {
+                alert(instructionsAlert);
+                return;
+                }
+
+                // Load the game if text was found
+                loadImportedGame(text);
+
+            } catch (err) {
+                // Fallback: Runs if the user denies clipboard permission or uses an older browser
+                alert(instructionsAlert);
+            }
+        };
     
-            if(!ableToImport) return
-    
-            ableToImport=false
-    
-            let text=e.clipboardData.getData('text/plain')
-    
-            document.getElementById('mainSelectMenu').style.display='none'
-            document.getElementById('mainMenu').style.display='none'
-    
-            BeeSwarmSimulator({id:Date.now(),saveCode:text,name:'Untitled Import'})
-        }
+        document.onpaste = (e) => {
+            let text = e.clipboardData.getData('text/plain');
+            if (text) {
+                loadImportedGame(text);
+            }
+        };
     
         for(let i in addedDivsToSplice){
     
