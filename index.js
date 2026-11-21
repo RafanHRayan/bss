@@ -28942,6 +28942,7 @@ function BeeSwarmSimulator(DATA){
             
             if(key==='i') inventoryButton.onclick()
             if(key==='q') questButton.onclick()
+            if(key==='b') beesButton.onclick()
 
             if(player.currentMachineTrigger&&key==='e'){
                 player.currentMachineTrigger.func(player)
