@@ -2,7 +2,7 @@
 
 # Bee Swarm Simulator WebGL Edition
 
-<span style="font-size: 24px;">[Original Webpage](https://dddatt.github.io/bss)</span> | <span style="font-size: 24px;">[This Version's Webpage](https://rafanhrayan.github.io/bss-webgl/)</span>
+[Original Webpage](https://dddatt.github.io/bss) | [This Version's Webpage](https://rafanhrayan.github.io/bss-webgl/)
 
 An HTML remake of Bee Swarm Simulator, made with WebGL2 and JS.
 
