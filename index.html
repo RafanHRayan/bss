@@ -4,7 +4,7 @@
 
     <head>
         <meta charset='utf-8'>
-        <title>Bee Swarm Simulator WebGL</title>
+        <title>BSS WebGL</title>
         <link rel="icon" type="image/png" href="icon-image.png">
     </head>
     <body onload='main()'>
@@ -39,13 +39,14 @@
         border-radius:8px;
         font-size:16px;
         background-color:rgb(255,255,255);
+        transition: filter 0.2s ease;
     }
     
     button:hover {
         
         cursor:pointer;
-        border-radius:13px;
         background-color:rgb(150,255,205);
+        filter: brightness(85%);
     }
     
     #purchaseButton {
@@ -4513,7 +4514,7 @@
     
     <canvas id='thumbnailCanv' style='position:fixed;left:50%;top:50%;z-index:-1;transform:translate(-50%,-50%);'></canvas>
 
-    <div style='position:fixed;left:50%;top:10%;text-align:center;font-size:45px;text-align:center;background-color:rgb(255,255,255,0.6);border-radius:15px;padding:5px;padding-left:25px;padding-right:25px;transform:translate(-50%,-50%);width:5000px;backdrop-filter:blur(10px)'>Bee Swarm Simulator</div>
+    <div style='position:fixed;left:50%;top:10%;text-align:center;font-size:45px;text-align:center;background-color:rgb(255,255,255,0.6);border-radius:15px;padding:5px;padding-left:25px;padding-right:25px;transform:translate(-50%,-50%);width:5000px;backdrop-filter:blur(10px)'>Bee Swarm Simulator WebGL</div>
     
     <button id='mainPlay' style='position:fixed;left:50%;top:50%;width:300px;height:70px;background-color:rgb(157, 255, 150);transform:translate(-50%,-130%);font-family:comic sans ms;font-size:35px'>Play</button>
 
