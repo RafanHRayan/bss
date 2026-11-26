@@ -7557,12 +7557,12 @@ function BeeSwarmSimulator(DATA){
 
     function showHoverText(x,y,str){
 
-        hoverText.style.left=x+10+'px'
-        hoverText.style.top=y+10+'px'
-        hoverText.style.bottom=''
-        hoverText.style.right=''
+        hoverText.style.left = x + 10 + 'px';
+        hoverText.style.top = y + 10 + 'px';
+        hoverText.style.bottom = '';
+        hoverText.style.right = '';
 
-        hoverText.innerText=str
+        hoverText.innerHTML = str.replace(/\n/g, '<br>');
     }
 
     let LIST_OF_STATS_FOR_PLAYER=[]
@@ -25289,7 +25289,8 @@ function BeeSwarmSimulator(DATA){
 
                         }
 
-                        showHoverText(e.x,e.y,MATH.doGrammar(name)+'\n'+stats)
+                        showHoverText(e.x, e.y, '<b>' + MATH.doGrammar(name) + '</b>\n' + stats);
+
                     }
                     C.onmouseenter=function(){
                         hoverText.style.display='block'
