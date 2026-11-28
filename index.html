@@ -257,7 +257,22 @@
     }
 
     #gearInfoList{
-        display:inline;
+        display:flex;
+        flex-wrap:nowrap;
+        max-width:calc(100vw - 10px);
+        overflow-x:auto;
+    }
+
+    #passiveInfoList,#effectInfoList{
+        display:flex;
+        flex-wrap:wrap;
+        max-width:calc(100vw - 10px);
+        column-gap:2px;
+        row-gap:2px;
+    }
+
+    #passiveInfoList svg,#effectInfoList svg{
+        flex:0 0 30px;
     }
     
 </style>
@@ -267,6 +282,8 @@
     <div id='gearInfoList'>
 
     </div>
+
+    <div id='passiveInfoList'>
 
     <svg id='inspireCoconutsPassive' style='width:30px;height:30px;display:none;'>
         <circle cx='15' cy='15' r='14' fill='rgb(115,163,0)' stroke='rgb(0,0,0)' stroke-width='2'></circle>
@@ -507,6 +524,10 @@
         <text id='starSawPassive_amount' x='29' y='29' style='font-family:tahoma;font-size:12px;' text-anchor='end' fill='rgb(255,255,255)'></text>
         
     </svg>
+
+    </div>
+
+    <div id='effectInfoList'>
     
     <svg id='tabbyLove' style='width:30px;height:30px;display:none'>
         
@@ -2428,7 +2449,7 @@
         <circle cx='-10' cy='-8' r='1.5' fill='rgb(0,0,0,0.2)'></circle>
         </g>
     </svg>
-    <br>
+    </div>
     <div id='UIBar' style='pointer-events:auto;margin:0px;z-index:0;width:210px;height:30px;background-color:rgba(195,195,195,0.4);margin-top:3px;padding:2px;border-radius:2px;'>
     
         <svg id='inventoryButton' style='width:30px;height:30px;transition-duration:0.4s;'>
