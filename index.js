@@ -3013,6 +3013,18 @@ function BeeSwarmSimulator(DATA){
 
 
     let hoverText=document.getElementById('hoverText')
+    let hoverTextRefreshInterval=null,hoverTextPosition={x:0,y:0}
+
+    function refreshHoverText(element,e){
+        hoverTextPosition={x:e.x,y:e.y}
+        if(!hoverTextRefreshInterval)
+            hoverTextRefreshInterval=window.setInterval(()=>element.onmousemove(hoverTextPosition),100)
+    }
+
+    function stopHoverTextRefresh(){
+        window.clearInterval(hoverTextRefreshInterval)
+        hoverTextRefreshInterval=null
+    }
 
     let beeInfo={
         
@@ -7589,6 +7601,7 @@ function BeeSwarmSimulator(DATA){
         if(!effects[i].svg){continue}
         
         effects[i].svg.onmousemove=function(e){
+            refreshHoverText(effects[i].svg,e)
             
             let index
             
@@ -7613,6 +7626,7 @@ function BeeSwarmSimulator(DATA){
         }
         effects[i].svg.onmouseleave=function(){
             hoverText.style.display='none'
+            stopHoverTextRefresh()
         }
         effects[i].svg.addEventListener('touchstart',function(e){
             
@@ -7626,6 +7640,7 @@ function BeeSwarmSimulator(DATA){
         })
         effects[i].svg.addEventListener('touchend',function(){
             hoverText.style.display='none'
+            stopHoverTextRefresh()
         })
     }
 
@@ -25210,6 +25225,7 @@ function BeeSwarmSimulator(DATA){
                     gearInfoList.appendChild(C)
 
                     C.onmousemove=function(e){
+                        refreshHoverText(C,e)
                         
                         let index
                         
@@ -25297,6 +25313,7 @@ function BeeSwarmSimulator(DATA){
                     }
                     C.onmouseleave=function(){
                         hoverText.style.display='none'
+                        stopHoverTextRefresh()
                     }
                     C.addEventListener('touchstart',function(e){
                         
@@ -25310,6 +25327,7 @@ function BeeSwarmSimulator(DATA){
                     })
                     C.addEventListener('touchend',function(){
                         hoverText.style.display='none'
+                        stopHoverTextRefresh()
                     })
                 }
             }
