@@ -7606,7 +7606,13 @@ function BeeSwarmSimulator(DATA){
             if(!effects[i].amountFromCooldown&&player.effects[index].amount!==1&&!effects[i].isPassive)
                 m=m.substr(0,_i)+' (x'+player.effects[index].amount+')'+m.substr(_i,m.length)
             
-            showHoverText(e.x, e.y, '<b>' + m + '</b>' + (effects[i].isPassive || effects[i].maxCooldown === 0 || effects[i].maxCooldown === Infinity ? '' : '\n' + MATH.doTime((player.effects[index].cooldown | 0).toString())));
+            showHoverText(e.x, e.y, 
+                '<b>' + m + '</b>' + 
+                (effects[i].isPassive || effects[i].maxCooldown === 0 || effects[i].maxCooldown === Infinity 
+                    ? '' 
+                    : '\n<span style="font-weight: normal;">' + MATH.doTime((player.effects[index].cooldown | 0).toString()) + '</span>'
+                )
+            );
         }
         effects[i].svg.onmouseenter=function(){
             hoverText.style.display='block'
